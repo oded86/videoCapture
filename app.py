@@ -9,9 +9,13 @@ success,image = vidcap.read()
 
 success = True
 while success:
+    #success,image = vidcap.read()
+    #cv2.imwrite(file_name, image)  
     try:
         success,image = vidcap.read()
         cv2.imwrite(file_name, image)     # save frame as JPEG file
+        img = cv2.resize(image,(704,320))
+        cv2.imwrite(file_name, img)
         success= False
 
     except:
